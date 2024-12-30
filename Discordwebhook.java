@@ -3,23 +3,23 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
 
 public class Discordwebhook {
-    static String message = "";
+//    static String message = "";
+//
+//    public static void main(String[] args) {
+//        String webhookURL = privatedata.return_webhook();
+//        test();
+//        try{
+//            sendMessage(webhookURL, message);
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
+//    }
 
-    public static void main(String[] args) {
-        String webhookURL = privatedata.return_webhook();
-        test();
-        try{
-            sendMessage(webhookURL, message);
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-    private static void sendMessage(String webhookURL, String message) throws IOException {
-        URL url = new URL(webhookURL);
+//    private static void sendMessage(String webhookURL, String message) throws IOException {
+      private static void sendMessage(String message) throws IOException {
+        URL url = new URL(privatedata.return_webhook());
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/json");
@@ -39,11 +39,11 @@ public class Discordwebhook {
             System.out.println("Failed to send message to Discord. code: " + responseCode);
         }
     }
-
-        private static void test(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("enter message:\n");
-        message = scanner.nextLine();
-        }
+//
+//        private static void test(){
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("enter message:\n");
+//        message = scanner.nextLine();
+//        }
 
 }
